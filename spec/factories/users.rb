@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    admin { false }
+    admin { true }
     name { Faker::Games::HeroesOfTheStorm.hero }
   end
 end

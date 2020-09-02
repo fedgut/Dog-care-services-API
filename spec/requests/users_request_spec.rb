@@ -52,7 +52,7 @@ RSpec.describe 'Users API', type: :request do
   describe 'POST /users' do
     # valid payload
     name = 'Earl'
-    let(:valid_attributes) { { name: name, admin: false } }
+    let(:valid_attributes) { { name: name, admin: true } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
