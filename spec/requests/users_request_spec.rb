@@ -43,7 +43,7 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(response.body).to match(/Couldn't find user/)
+        expect(response.body).to match("{\"message\":\"Couldn't find User with 'id'=100\"}")
       end
     end
   end
@@ -51,14 +51,13 @@ RSpec.describe 'Users API', type: :request do
   # Test suite for POST /users
   describe 'POST /users' do
     # valid payload
-    name = 'Earl'
-    let(:valid_attributes) { { name: name, admin: true } }
+    let(:valid_attributes) { { name: 'Earl' } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
 
       it 'creates a user' do
-        expect(json['name']).to eq(name)
+        expect(json['name']).to eq('Earl')
       end
 
       it 'returns status code 201' do
@@ -67,7 +66,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/users', params: { admin: false } }
+      before { post '/users', params: { name: '' } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)

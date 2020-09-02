@@ -1,38 +1,35 @@
 class UsersController < ApplicationController
-
   # GET /users
   def index
     @users = User.all
     json_response(@users)
   end
 
-  # POST /users
-  def create
-    @user = User.create!(todo_params)
-    json_response(@user, :created)
-  end
-
-  # GET /users/:id
   def show
+    @user = User.find(params[:id])
     json_response(@user)
   end
 
-  # PUT /users/:id
-  def update
-    @user.update(user_params)
+  def create
+    @user = User.create!(params[:user_params])
+    json_response(@user, :created)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
     head :no_content
   end
 
-  # DELETE /users/:id
-  def destroy
-    @user.destroy
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
     head :no_content
   end
 
   private
 
-  def todo_params
-    # whitelist params
-    params.permit(:name)
+  def user_params
+    params.require(:name).permit(:admin)
   end
 end
