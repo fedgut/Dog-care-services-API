@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %I[show update destroy]
+  before_action :set_user, only: %I[show destroy]
 
   def index
     @users = User.all
@@ -17,11 +17,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    head :no_content
-  end
-
-  def update
-    @user.update(user_params)
     head :no_content
   end
 
