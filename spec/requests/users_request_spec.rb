@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users API', type: :request do
   # initialize test data
-  let!(:user) { create(:user) }
-  let(:user_id) { user.id }
+  let!(:user2) { create(:user) }
+  let(:user) { build(:user) }
+  let(:user_id) { user2.id }
+  let(:headers) { valid_headers.except('Authorization') }
+  let(:valid_attributes) do
+    attributes_for(:user, password_confirmation: user.password)
+  end
 
   # Test suite for GET /users/:id
   describe 'GET /users/:id' do
@@ -33,32 +38,32 @@ RSpec.describe 'Users API', type: :request do
     end
   end
 
-  # Test suite for POST /users
-  describe 'POST /users' do
-    # valid payload
-    let(:valid_attributes) { { name: 'Jacinto', email: 'info@jacinto.com', password: 'Falopio' } }
+  describe 'POST /signup' do
+    context 'when valid request' do
+      before { post '/signup', params: valid_attributes.to_json, headers: headers }
 
-    context 'when the request is valid' do
-      before { post '/users', params: valid_attributes }
-
-      it 'creates a user' do
-        expect(json['name']).to eq('Jacinto')
+      it 'creates a new user' do
+        expect(response).to have_http_status(201)
       end
 
-      it 'returns status code 201' do
-        expect(response).to have_http_status(201)
+      it 'returns success message' do
+        expect(json['message']).to match(/Account created successfully/)
+      end
+
+      it 'returns an authentication token' do
+        expect(json['auth_token']).not_to be_nil
       end
     end
 
-    context 'when the request is invalid' do
-      before { post '/users', params: { 'name': '' } }
+    context 'when invalid request' do
+      before { post '/signup', params: {}, headers: headers }
 
-      it 'returns status code 422' do
+      it 'does not create a new user' do
         expect(response).to have_http_status(422)
       end
 
-      it 'returns a validation failure message' do
-        expect(response.body)
+      it 'returns failure message' do
+        expect(json['message'])
           .to match(/Validation failed: /)
       end
     end
