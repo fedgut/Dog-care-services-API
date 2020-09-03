@@ -19,6 +19,36 @@ RSpec.describe 'Favourites', type: :request do
     end
   end
 
+  # Test suite for POST /users/:user_id/favourites
+  describe 'POST  a favourite' do
+    let(:valid_attributes) { { user_id: user_id, service_id: service_id } }
+
+    context 'With valid params' do
+      before { post "/users/#{user_id}/favourites", params: valid_attributes }
+
+      it 'creates a fav with correct ids' do
+        expect(json['user_id']).to eq(user_id)
+        expect(json['service_id']).to eq(service_id)
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'with invalid params' do
+      before { post "/users/#{user_id}/favourites", params: {} }
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: /)
+      end
+    end
+  end
+
   describe 'Destroys a specific fav' do
     before { delete "/users/#{user_id}/favourites/#{favourite.id}" }
 

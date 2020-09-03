@@ -48,7 +48,7 @@ RSpec.describe 'Users API', type: :request do
   end
 
   # Test suite for POST /users
-  describe 'POST /todos' do
+  describe 'POST /users' do
     # valid payload
     let(:valid_attributes) { { name: 'Jacinto', email: 'info@jacinto.com', password: 'Falopio' } }
 
