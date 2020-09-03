@@ -69,4 +69,50 @@ RSpec.describe 'Services', type: :request do
       end
     end
   end
+
+  # test suite for destroying services
+  describe 'Delete services/:id' do
+    before { delete "/services/#{service_id}" }
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(204)
+    end
+  end
+
+  # Test suite for POST /services
+  describe 'POST /services' do
+    let(:valid_attributes) do
+      {
+        title: 'Test-service-title',
+        description: 'Test-service-description',
+        image_url: 'https://www.generic.com/images/image.jpg',
+        price: '10.50'
+      }
+    end
+
+    context 'when the request is valid' do
+      before { post '/services', params: valid_attributes }
+
+      it 'creates a service' do
+        expect(json['title']).to eq('Test-service-title')
+      end
+
+      it 'returns status code 201' do
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when the request is invalid' do
+      before { post '/services', params: { 'title': '' } }
+
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a validation failure message' do
+        expect(response.body)
+          .to match(/Validation failed: /)
+      end
+    end
+  end
 end

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :favourites, only: [:create, :update, :destroy, :index]
-    resources :services, only: [:create, :destroy, :update]
+    resources :favourites, only: [:create, :destroy, :index] 
   end
-  resources :services, excpet: [:create, :destroy, :update]
+  resources :services
 end
