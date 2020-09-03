@@ -7,7 +7,6 @@ RSpec.describe 'Users API', type: :request do
 
   # Test suite for GET /users
   describe 'GET /users' do
-    # make HTTP get request before each example
     before { get '/users' }
 
     it 'returns users' do
@@ -43,7 +42,7 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns a not found message' do
-        expect(JSON.parse(response.body)).to match({ 'message' => "Couldn't find User with 'id'=100" })
+        expect(json).to eq({ 'message' => "Couldn't find User with 'id'=100" })
       end
     end
   end
