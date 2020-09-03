@@ -50,7 +50,7 @@ RSpec.describe 'Users API', type: :request do
   # Test suite for POST /users
   describe 'POST /todos' do
     # valid payload
-    let(:valid_attributes) { { name: 'Jacinto' } }
+    let(:valid_attributes) { { name: 'Jacinto', email: 'info@jacinto.com', password: 'Falopio' } }
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
@@ -73,7 +73,7 @@ RSpec.describe 'Users API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Name can't be blank/)
+          .to match(/Validation failed: /)
       end
     end
   end
