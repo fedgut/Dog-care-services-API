@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %I[show update destroy]
+  before_action :check_admin, only: %i[create update destroy]
 
   def index
     @services = Service.all
@@ -7,8 +8,6 @@ class ServicesController < ApplicationController
   end
 
   def create
-    return unless @current_user.admin
-
     @service = Service.create!(service_params)
     json_response(@service, :created)
   end
@@ -19,20 +18,20 @@ class ServicesController < ApplicationController
   end
 
   def update
-    return unless @current_user.admin
-
     @service.update(service_params)
     head :no_content
   end
 
   def destroy
-    return unless @current_user.admin
-
     @service.destroy
     head :no_content
   end
 
   private
+
+  def check_admin
+    raise(ExceptionHandler::AuthenticationError, Message.notallowed) unless current_user.admin
+  end
 
   def service_params
     params.permit(:title, :description, :price, :image_url)
