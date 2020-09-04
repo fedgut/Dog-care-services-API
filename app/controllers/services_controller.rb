@@ -7,6 +7,8 @@ class ServicesController < ApplicationController
   end
 
   def create
+    return unless @current_user.admin
+
     @service = Service.create!(service_params)
     json_response(@service, :created)
   end
@@ -17,11 +19,15 @@ class ServicesController < ApplicationController
   end
 
   def update
+    return unless @current_user.admin
+
     @service.update(service_params)
     head :no_content
   end
 
   def destroy
+    return unless @current_user.admin
+
     @service.destroy
     head :no_content
   end
