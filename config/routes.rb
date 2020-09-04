@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create, :destroy, :show] do
+  resources :users, only: [:create] do
     resources :favourites, only: [:create, :destroy, :index] 
   end
   resources :services

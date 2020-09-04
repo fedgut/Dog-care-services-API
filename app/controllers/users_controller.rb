@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %I[show destroy]
-
-  def show
-    json_response(@user)
-  end
+  skip_before_action :authorize_request, only: :create
 
   def create
     user = User.create!(user_params)
@@ -12,18 +8,9 @@ class UsersController < ApplicationController
     json_response(response, :created)
   end
 
-  def destroy
-    @user.destroy
-    head :no_content
-  end
-
   private
 
   def user_params
     params.permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def set_user
-    @user = User.find(params[:id])
   end
 end
