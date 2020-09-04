@@ -6,9 +6,10 @@ RSpec.describe 'Favourites', type: :request do
   let!(:service) { create(:service) }
   let(:service_id) { service.id }
   let!(:favourite) { create(:favourite) }
+  let(:headers) { valid_headers }
 
   describe ' Get user favourites ' do
-    before { get "/users/#{user_id}/favourites" }
+    before { get "/users/#{user_id}/favourites", headers: headers }
     it 'Returns user favourites' do
       expect(json).not_to be_empty
       expect(json.size).to eq(1)
@@ -21,10 +22,10 @@ RSpec.describe 'Favourites', type: :request do
 
   # Test suite for POST /users/:user_id/favourites
   describe 'POST  a favourite' do
-    let(:valid_attributes) { { user_id: user_id, service_id: service_id } }
+    let(:valid_attributes) { { user_id: user_id, service_id: service_id }.to_json }
 
     context 'With valid params' do
-      before { post "/users/#{user_id}/favourites", params: valid_attributes }
+      before { post "/users/#{user_id}/favourites", params: valid_attributes, headers: headers }
 
       it 'creates a fav with correct ids' do
         expect(json['user_id']).to eq(user_id)
@@ -37,7 +38,7 @@ RSpec.describe 'Favourites', type: :request do
     end
 
     context 'with invalid params' do
-      before { post "/users/#{user_id}/favourites", params: {} }
+      before { post "/users/#{user_id}/favourites", params: {}, headers: headers }
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
@@ -50,7 +51,7 @@ RSpec.describe 'Favourites', type: :request do
   end
 
   describe 'Destroys a specific fav' do
-    before { delete "/users/#{user_id}/favourites/#{favourite.id}" }
+    before { delete "/users/#{user_id}/favourites/#{favourite.id}", headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
