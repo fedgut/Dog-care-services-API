@@ -224,12 +224,12 @@ Give a ⭐️ if you like this project!
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/fedgut/tracker-api.svg?style=flat-square
-[contributors-url]: https://github.com/fedgut/tracker-api/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/fedgut/tracker-api.svg?style=flat-square
-[forks-url]: https://github.com/fedgut/tracker-api/network/members
-[stars-shield]: https://img.shields.io/github/stars/fedgut/tracker-api.svg?style=flat-square
-[stars-url]: https://github.com/fedgut/tracker-api/stargazers
-[issues-shield]: https://img.shields.io/github/issues/fedgut/tracker-api.svg?style=flat-square
-[issues-url]: https://github.com/fedgut/tracker-api/issues
+[contributors-shield]: https://img.shields.io/github/contributors/fedgut/dog_sitter_api.svg?style=flat-square
+[contributors-url]: https://github.com/fedgut/dog_sitter_api/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/fedgut/dog_sitter_api.svg?style=flat-square
+[forks-url]: https://github.com/fedgut/dog_sitter_api/network/members
+[stars-shield]: https://img.shields.io/github/stars/fedgut/dog_sitter_api.svg?style=flat-square
+[stars-url]: https://github.com/fedgut/dog_sitter_api/stargazers
+[issues-shield]: https://img.shields.io/github/issues/fedgut/dog_sitter_api.svg?style=flat-square
+[issues-url]: https://github.com/fedgut/dog_sitter_api/issues
 [product-screenshot]: /app/assets/images/exercises-index.png
