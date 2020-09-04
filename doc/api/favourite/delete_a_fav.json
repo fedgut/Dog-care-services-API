@@ -1,0 +1,35 @@
+{
+  "resource": "favourite",
+  "resource_explanation": null,
+  "http_method": "DELETE",
+  "route": "/users/:user_id/favourites/:id",
+  "description": "Delete a fav",
+  "explanation": "Users can delete a fav",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "DELETE",
+      "request_path": "/users/1/favourites/1",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 204,
+      "response_status_text": "No Content",
+      "response_body": null,
+      "response_headers": {
+      },
+      "response_content_type": null,
+      "curl": "curl \"http://localhost:3000/users/1/favourites/1\" -d '' -X DELETE \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "resources": [
+    {
+      "name": "favourite",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing favorites",
+          "link": "favourite/listing_favorites.json",
+          "groups": "all",
+          "route": "/users/:user_id/favourites/",
+          "method": "get"
+        },
+        {
+          "description": "Fav a service",
+          "link": "favourite/fav_a_service.json",
+          "groups": "all",
+          "route": "/users/:user_id/favourites/",
+          "method": "post"
+        },
+        {
+          "description": "Delete a fav",
+          "link": "favourite/delete_a_fav.json",
+          "groups": "all",
+          "route": "/users/:user_id/favourites/:id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing services",
+          "link": "service/listing_services.json",
+          "groups": "all",
+          "route": "/services",
+          "method": "get"
+        },
+        {
+          "description": "See a service in detail",
+          "link": "service/see_a_service_in_detail.json",
+          "groups": "all",
+          "route": "/services/:service_id",
+          "method": "get"
+        },
+        {
+          "description": "Create a service",
+          "link": "service/create_a_service.json",
+          "groups": "all",
+          "route": "/services/",
+          "method": "post"
+        },
+        {
+          "description": "Update a service",
+          "link": "service/update_a_service.json",
+          "groups": "all",
+          "route": "/services/:id",
+          "method": "put"
+        },
+        {
+          "description": "Delete a service",
+          "link": "service/delete_a_service.json",
+          "groups": "all",
+          "route": "/services/:id",
+          "method": "delete"
+        }
+      ]
+    }
+  ]
+}
