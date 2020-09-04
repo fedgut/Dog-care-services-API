@@ -61,8 +61,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![asciicast][product-screenshot]](https://www.loom.com/share/1fa671b5e0584f3f82b0c27e9640cc54)
-
 This API matches dog care services (Dog sitting, walking, grooming, etc.) with different users!
 Many sellers can offer the same service, but who do you trust to care for your furry friend? 
 Add those services you prefer to your favorites and easily keep track of them.
@@ -80,7 +78,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Install RVM
+Install [RVM](https://rvm.io/rvm/install)
 
 ### Setup
 
@@ -105,20 +103,21 @@ rails server
 ```
 
 Install [httpie](https://httpie.org/) 
+Don't know where to [start using httpie?](https://httpie.org/docs#usage)
 
 #### Signup
 
 The following command will create an login a new user in the database, fill in your name, email and password
 
 ```bash
-$ http :3000/v1/signup name=Eduardo email=eduardo@email.com password=foobar password_confirmation=foobar
+$ http :3000/signup name=Eduardo email=eduardo@email.com password=foobar password_confirmation=foobar
 ```
 #### Login
 
 Users Log in with their email and password
 
 ```bash
-$ http :3000/v1/login email=eduardo@email.com password=foobar
+$ http :3000/login email=eduardo@email.com password=foobar
 ```
 
 #### Register a service
@@ -155,7 +154,7 @@ $ http :3000/services
 
 #### To see the details of a Service
 
-Once you have seen the list of all services, choose and and type in the id in place of the *:id* too see its details.
+Once you have seen the list of all services, choose and and replace the service id in *:id* too see its details.
 
 ```bash
 $ http :3000/service/:id
