@@ -2,12 +2,22 @@ require 'rails_helper'
 
 RSpec.describe 'Services', type: :request do
   # initialize test data
+  let!(:user) { create(:user) }
   let!(:services) { create_list(:service, 10) }
   let(:service_id) { services.first.id }
+  let(:headers) { valid_headers }
+  let(:valid_attributes) do
+    {
+      title: 'Test-service-title',
+      description: 'Test-service-description',
+      image_url: 'https://www.generic.com/images/image.jpg',
+      price: '10.50'
+    }.to_json
+  end
 
   # Test suite for GET /services
   describe 'GET /services' do
-    before { get '/services' }
+    before { get '/services', headers: headers }
 
     it 'return all services' do
       expect(json).not_to be_empty
@@ -21,7 +31,7 @@ RSpec.describe 'Services', type: :request do
   # Test suite for GET /services/:id
 
   describe 'GET /services/:id' do
-    before { get "/services/#{service_id}" }
+    before { get "/services/#{service_id}", headers: headers }
 
     context 'When the record exist' do
       it 'return a specific service' do
@@ -48,17 +58,8 @@ RSpec.describe 'Services', type: :request do
 
   # Test suite for PUT /services/:id
   describe 'PUT /services/:id' do
-    let(:valid_attributes) do
-      {
-        title: 'Test-service-title',
-        description: 'Test-service-description',
-        image_url: 'https://www.generic.com/images/image.jpg',
-        price: '10.50'
-      }
-    end
-
     context 'when the record exists' do
-      before { put "/services/#{service_id}", params: valid_attributes }
+      before { put "/services/#{service_id}", params: valid_attributes, headers: headers }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -72,7 +73,7 @@ RSpec.describe 'Services', type: :request do
 
   # test suite for destroying services
   describe 'Delete services/:id' do
-    before { delete "/services/#{service_id}" }
+    before { delete "/services/#{service_id}", headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
@@ -81,17 +82,9 @@ RSpec.describe 'Services', type: :request do
 
   # Test suite for POST /services
   describe 'POST /services' do
-    let(:valid_attributes) do
-      {
-        title: 'Test-service-title',
-        description: 'Test-service-description',
-        image_url: 'https://www.generic.com/images/image.jpg',
-        price: '10.50'
-      }
-    end
 
     context 'when the request is valid' do
-      before { post '/services', params: valid_attributes }
+      before { post '/services', params: valid_attributes, headers: headers }
 
       it 'creates a service' do
         expect(json['title']).to eq('Test-service-title')
@@ -103,7 +96,7 @@ RSpec.describe 'Services', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/services', params: { 'title': '' } }
+      before { post '/services', params: { 'title': '' }.to_json, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
