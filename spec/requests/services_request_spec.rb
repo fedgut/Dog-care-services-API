@@ -71,7 +71,7 @@ RSpec.describe 'Services', type: :request do
     end
   end
 
-  # test suite for destroying services
+  # test suite for DELETE services
   describe 'Delete services/:id' do
     before { delete "/services/#{service_id}", headers: headers }
 
@@ -82,7 +82,6 @@ RSpec.describe 'Services', type: :request do
 
   # Test suite for POST /services
   describe 'POST /services' do
-
     context 'when the request is valid' do
       before { post '/services', params: valid_attributes, headers: headers }
 
