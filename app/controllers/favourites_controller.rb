@@ -5,7 +5,7 @@ class FavouritesController < ApplicationController
   end
 
   def create
-    @favourite = Favourite.create!(favourite_params)
+    @favourite = current_user.favourites.create!(favourite_params)
     json_response(@favourite, :created)
   end
 
