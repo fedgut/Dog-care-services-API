@@ -17,7 +17,7 @@ class FavouritesController < ApplicationController
   private
 
   def favourite_params
-    params.permit(:user_id, :service_id)
+    params.permit(:service_id)
   end
 
   def set_favourite

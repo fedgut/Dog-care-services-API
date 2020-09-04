@@ -22,7 +22,7 @@ RSpec.describe 'Favourites', type: :request do
 
   # Test suite for POST /users/:user_id/favourites
   describe 'POST  a favourite' do
-    let(:valid_attributes) { { user_id: user_id, service_id: service_id }.to_json }
+    let(:valid_attributes) { { service_id: service_id }.to_json }
 
     context 'With valid params' do
       before { post "/users/#{user_id}/favourites", params: valid_attributes, headers: headers }
