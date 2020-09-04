@@ -25,7 +25,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.10', '>= 2.10.1'
+  gem 'raddocs'
   gem 'rspec-rails'
+  gem 'rspec_api_documentation'
   gem 'shoulda-matchers'
 end
 

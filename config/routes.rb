@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :services
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+  mount Raddocs::App => "/docs", :anchor => false
 end
