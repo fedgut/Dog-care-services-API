@@ -70,7 +70,11 @@ This is the final Capstone project of the Microverse Curriculum.
 
 ### Documentation
 
-The [documentation]() was built using raddocs 
+The [documentation](https://quiet-cove-56221.herokuapp.com/docs) was built using raddocs, deployed in Heroku
+
+## Deployment 
+
+Its only a back end, so you wont see anything! Check out the deployed app at [Heroku](https://quiet-cove-56221.herokuapp.com/) 
 
 ### Getting Started
 
