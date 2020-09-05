@@ -14,6 +14,7 @@ gem 'rubocop', '~>0.81.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'raddocs'
+gem 'rspec_api_documentation'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -27,7 +28,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', '~> 2.10', '>= 2.10.1'
   gem 'rspec-rails'
-  gem 'rspec_api_documentation'
   gem 'shoulda-matchers'
 end
 
