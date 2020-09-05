@@ -7,7 +7,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'rubocop', '~>0.81.0'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

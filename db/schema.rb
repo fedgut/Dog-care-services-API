@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_09_03_195257) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favourites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "service_id"
+    t.bigint "user_id"
+    t.bigint "service_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["service_id"], name: "index_favourites_on_service_id"

@@ -1,7 +1,27 @@
 {
   "resources": [
     {
-      "name": "favourite",
+      "name": "Authentication",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Creating a new  User",
+          "link": "authentication/creating_a_new_user.json",
+          "groups": "all",
+          "route": "/signup",
+          "method": "post"
+        },
+        {
+          "description": "Creating a new token",
+          "link": "authentication/creating_a_new_token.json",
+          "groups": "all",
+          "route": "/auth/login",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Favourite",
       "explanation": null,
       "examples": [
         {

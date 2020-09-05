@@ -1,5 +1,5 @@
 {
-  "resource": "favourite",
+  "resource": "Favourite",
   "resource_explanation": null,
   "http_method": "DELETE",
   "route": "/users/:user_id/favourites/:id",

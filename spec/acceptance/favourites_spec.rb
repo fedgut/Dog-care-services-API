@@ -1,7 +1,7 @@
 require 'acceptance_helper'
 
 # rubocop:disable Metrics/BlockLength
-resource 'favourite', acceptance: true do
+resource 'Favourite', acceptance: true do
   let!(:user) { create(:user) }
   let!(:service) { create(:service) }
   let!(:favourite) { create(:favourite) }

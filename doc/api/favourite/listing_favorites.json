@@ -1,5 +1,5 @@
 {
-  "resource": "favourite",
+  "resource": "Favourite",
   "resource_explanation": null,
   "http_method": "GET",
   "route": "/users/:user_id/favourites/",
@@ -25,7 +25,7 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "[\n  {\n    \"id\": 1,\n    \"user_id\": 1,\n    \"service_id\": 1,\n    \"created_at\": \"2020-09-04T23:39:48.449Z\",\n    \"updated_at\": \"2020-09-04T23:39:48.449Z\"\n  }\n]",
+      "response_body": "[\n  {\n    \"id\": 1,\n    \"user_id\": 1,\n    \"service_id\": 1,\n    \"created_at\": \"2020-09-05T00:00:14.956Z\",\n    \"updated_at\": \"2020-09-05T00:00:14.956Z\"\n  }\n]",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

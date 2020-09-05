@@ -1,0 +1,71 @@
+{
+  "resource": "Authentication",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/signup",
+  "description": "Creating a new  User",
+  "explanation": "Registers a new user in the database",
+  "parameters": [
+    {
+      "name": "name",
+      "description": "User name"
+    },
+    {
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "name": "password",
+      "description": "User password"
+    },
+    {
+      "name": "password_confirmation",
+      "description": "User password confirmation"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/signup",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"message\": \"Validation failed: Password can't be blank, Name can't be blank, Email can't be blank, Password digest can't be blank\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/signup\" -d '' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    },
+    {
+      "request_method": "POST",
+      "request_path": "/signup",
+      "request_body": "{\"name\":\"Eduardo\",\"email\":\"some@mail.com\",\"password\":\"foobar\",\"password_confirmation\":\"foobar\"}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"message\": \"Account created successfully\",\n  \"auth_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1OTkzNTA0MTR9.uu0yV1Cf1JH7EA3SwCNfiMffD4hBtcdVE6JKNOyj7GI\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/signup\" -d '{\"name\":\"Eduardo\",\"email\":\"some@mail.com\",\"password\":\"foobar\",\"password_confirmation\":\"foobar\"}' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
