@@ -1,0 +1,39 @@
+{
+  "resource": "Favourite",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "/users/:user_id/favourites/",
+  "description": "Fav a service",
+  "explanation": "Users can create new favourites",
+  "parameters": [
+    {
+      "name": "{:service_id=>\"The id of the service you want to fav\"}",
+      "description": " {:service id=>\"the id of the service you want to fav\"}"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/users/1/favourites/",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"message\": \"Validation failed: Service must exist\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/users/1/favourites/\" -d '' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

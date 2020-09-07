@@ -1,0 +1,36 @@
+{
+  "resource": "Service",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/services/:service_id",
+  "description": "See a service in detail",
+  "explanation": "See all the details of a specific service",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/services/%3Aservice_id",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 404,
+      "response_status_text": "Not Found",
+      "response_body": "{\n  \"message\": \"Couldn't find Service with 'id'=:service_id\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl -g \"http://localhost:3000/services/%3Aservice_id\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
