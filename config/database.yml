@@ -7,17 +7,17 @@ default: &default
 
 development:
   <<: *default
-  database: <app_name>_development
+  database: <dog_sitter>_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: <app_name>_test
+  database: <dog_sitter>_test
 
 production:
   <<: *default
-  database: <app_name>_production
+  database: <dog_sitter>_production
   username: pixel_place
   password: <%= ENV['PIXEL_PLACE_DATABASE_PASSWORD'] %>

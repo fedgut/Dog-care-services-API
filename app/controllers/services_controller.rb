@@ -13,7 +13,6 @@ class ServicesController < ApplicationController
   end
 
   def show
-    set_service
     json_response(@service)
   end
 
