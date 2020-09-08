@@ -70,11 +70,11 @@ This is the final Capstone project of the Microverse Curriculum.
 
 ### Documentation
 
-The [documentation](https://quiet-cove-56221.herokuapp.com/docs) was built using raddocs, deployed in Heroku
+The [documentation](https://quiet-cove-56221.herokuapp.com/docs) was built using raddocs, in Heroku
 
 ## Deployment 
 
-Its only a back end, so you wont see anything! Check out the deployed app at [Heroku](https://quiet-cove-56221.herokuapp.com/) 
+It's a back end, so you won't see anything! Check out the deployed app at [Heroku](https://quiet-cove-56221.herokuapp.com/) 
 
 ### Getting Started
 
@@ -107,11 +107,11 @@ rails server
 ```
 
 Install [httpie](https://httpie.org/) 
-Don't know where to [start using httpie?](https://httpie.org/docs#usage)
+Don't know where to [start? Using httpie](https://httpie.org/docs#usage)
 
 #### Signup
 
-The following command will create an login a new user in the database, fill in your name, email and password
+The following command will create and log in a new user in the database, fill in your name, email, and password
 
 ```bash
 $ http :3000/signup name=Eduardo email=eduardo@email.com password=foobar password_confirmation=foobar
@@ -135,13 +135,13 @@ $ rails c
 > User.find_by(email: 'eduardo@email.com').update(admin: true)
 > exit
 ```
-After that login the user and keep the auth_token safe!
+After that log in the user and keep the auth_token safe!
 
 ```bash
 $ http :3000/login email=eduardo@email.com password=foobar
 ```
 
-Finally we'll create a new service this way (paste the auth_token in the Authorization header)
+Finally, we'll create a new service this way (paste the auth_token in the Authorization header)
 
 ```bash
 $ http :3000/services name=grooming user_id=1 \
@@ -158,7 +158,7 @@ $ http :3000/services
 
 #### To see the details of a Service
 
-Once you have seen the list of all services, choose and and replace the service id in *:id* too see its details.
+Once you have seen the list of all services, choose and replace the service id in *:id* to see its details.
 
 ```bash
 $ http :3000/service/:id
@@ -188,7 +188,7 @@ $ http :3000/users/2/favourites Authorization:'yourtoken'
 to run the test:
 
 ```
-rspec
+RSpec
 ```
 
 ### Built With
@@ -209,7 +209,7 @@ Project [Link](https://github.com/fedgut/dog_sitter_API/)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
