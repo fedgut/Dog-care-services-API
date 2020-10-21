@@ -22,9 +22,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/fedgut/dog_sitter_API">
-    <img src="https://raw.githubusercontent.com/euqueme/toy-app/master/app/assets/images/mLogo.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">Dog Sitter Services API Final Capstone project</h3>
 
